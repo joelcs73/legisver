@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 Route::get('/legisladores/','DiputadosLegislaturaController@showweb');
 
+Route::get('/legisladores/edita/{idDiputado}','DiputadoController@edita')
+    ->name('diputado.edita');
+    
 Route::get('/legisladores/licencia/{idDiputado}','DiputadosLegislaturaController@licencia')->name('diputado.licencia');
-Route::get('/legisladores/edita/{idDiputado}','DiputadoController@edita')->name('diputado.edita');
 Route::get('/legisladores/mesadirectiva','MesaDirectivaController@show');
 
 Route::get('/guardalegislador/{idDiputado}','DiputadoController@actualiza');

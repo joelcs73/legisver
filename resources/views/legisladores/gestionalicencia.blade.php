@@ -1,4 +1,4 @@
-@extends('index')
+@extends('welcome')
 @section('titulo',"Gestionando licencia")
 {{-- @section('subtitulo',$diputadoSale->nombreDiputado ) --}}
 @section('Contenido')

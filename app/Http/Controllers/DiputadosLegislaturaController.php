@@ -167,7 +167,8 @@ class DiputadosLegislaturaController extends Controller
         // Obtenemos de la tabla [diputadoslegislatura] los datos del diputado que se irá de licencia
         $oLegislatura = new LegislaturaController();
         $numleg = $oLegislatura->ultimaLegislatura();
-        $condiciondiputado = [['cat_diputados.idDiputado', '=', $idDip]];
+        // $condiciondiputado = [['cat_diputados.idDiputado', '=', $idDip]];
+        $condiciondiputado = 'cat_diputados.idDiputado = '.$idDip;
         $diputadoSale = $this->distritosOcupados($condiciondiputado,$numleg)->first();
         if(empty($diputadoSale)){ return view('rutainvalida'); }
         if($diputadoSale->status==0){ return view('rutainvalida'); }
@@ -177,7 +178,8 @@ class DiputadosLegislaturaController extends Controller
             // Aquí el diputado saliente es Propietario
 
             // Obtenemos el diputado que es su suplente
-            $condiciondiputado = [['cat_diputados.idDiputado', '=', $diputadoSale->suplenteDe]];
+            // $condiciondiputado = [['cat_diputados.idDiputado', '=', $diputadoSale->suplenteDe]];
+            $condiciondiputado = 'cat_diputados.idDiputado = '.$diputadoSale->suplenteDe;
             $diputadoEntra = $this->distritosOcupados($condiciondiputado,$numleg)->first();
             if(empty($diputadoEntra)){
                 $diputadoEntraYaHaOcupadoCurul = false;
@@ -187,7 +189,8 @@ class DiputadosLegislaturaController extends Controller
             // Aquí el diputado saliente es Suplente
             
             // Obtenemos el diputado que es propietario
-            $condiciondiputado = [['cat_diputados.idDiputado', '=', $diputadoSale->suplenteDe]];
+            // $condiciondiputado = [['cat_diputados.idDiputado', '=', $diputadoSale->suplenteDe]];
+            $condiciondiputado = 'cat_diputados.idDiputado = '.$diputadoSale->suplenteDe;
             $diputadoEntra = $this->distritosOcupados($condiciondiputado,$numleg,0)->first();
         }
         // dd($diputadoSale,$diputadoEntra,$diputadoEntraYaHaOcupadoCurul);

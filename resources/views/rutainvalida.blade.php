@@ -1,4 +1,4 @@
-@extends('index')
+@extends('welcome')
 {{-- @section('titulo',"Ruta Inválida") --}}
 {{-- @section('subtitulo',$diputado->nombreDiputado ) --}}
 @section('Contenido')

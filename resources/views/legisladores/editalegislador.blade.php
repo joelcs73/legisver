@@ -1,4 +1,4 @@
-@extends('index')
+@extends('welcome')
 @section('titulo',"Editando datos de ")
 
 {{-- @dd($diputado) --}}

@@ -95,8 +95,8 @@ class DiputadoController extends Controller
         $oLegislatura = new LegislaturaController();
         $oDiputadosLegislatura = new DiputadosLegislaturaController();
         $numleg = $oLegislatura->ultimaLegislatura();
-        $condiciondiputado = [['cat_diputados.idDiputado', '=', $idDip]];
-        $condicionPropietarios = [['cat_diputados.suplenteDe','=',0]];
+        $condiciondiputado = 'cat_diputados.idDiputado = '.$idDip;
+        $condicionPropietarios = 'cat_diputados.suplenteDe = 0';
 
         $diputado=$oDiputadosLegislatura->distritosOcupados($condiciondiputado,$numleg)->first();
         $diputadosPropietarios=$oDiputadosLegislatura->distritosOcupados($condicionPropietarios,$numleg,0);

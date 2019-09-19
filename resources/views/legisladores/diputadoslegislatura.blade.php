@@ -43,12 +43,13 @@
                     {{-- <td>{{ $diputado->tipoDeEleccion }}</td> --}}
                 @if($diputado->id!=NULL)
                     <td class="text-center">
-                            <a class="btn btn-outline-dark" href="{{ route('diputado.edita', ['diputado' => $diputado->idDiputado]) }}">
+                            {{--  <a class="btn btn-outline-dark" href="{{ route('diputado.edita', ['diputado' => $diputado->idDiputado]) }}">  --}}
+                            <a class="btn btn-outline-dark" href="{{ route('diputado.edita', ['idDiputado'=>$diputado->idDiputado]) }}">
                                 <span class="oi oi-pencil"></span>
                             </a>
                         </td>
                     <td class="text-center">
-                        <a class="btn btn-outline-dark" href="{{ route('diputado.licencia', ['diputado' => $diputado->idDiputado]) }}">
+                        <a class="btn btn-outline-dark" href="{{ route('diputado.licencia', ['idDiputado' => $diputado->idDiputado]) }}">
                             <span class="oi oi-loop-circular"></span>
                         </a>
                     </td>
