@@ -14,6 +14,7 @@ class AreaController extends Controller
      */
     public function index()
     {
+        // return 'Areas';
         $areas = Area::get();
         echo json_encode($areas);
     }

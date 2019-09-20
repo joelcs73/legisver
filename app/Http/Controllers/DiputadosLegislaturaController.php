@@ -22,7 +22,10 @@ class DiputadosLegislaturaController extends Controller
     {
         $oLegislatura = new LegislaturaController();
         $leg = $oLegislatura->ultimaLegislatura();
-        return redirect('api/diputadoslegislatura/'.$leg);
+        $condiciones = 'diputadoslegislatura.id is not null';
+        $diputados=$this->distritosOcupados($condiciones,$leg);
+        echo json_encode($diputados);
+        // return redirect('api/diputadoslegislatura/'.$leg);
     }
 
     /**
