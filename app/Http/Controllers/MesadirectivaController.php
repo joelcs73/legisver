@@ -51,16 +51,30 @@ class MesadirectivaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($numleg)
     {
-            $oLegislatura = new LegislaturaController();
-            $oDiputadosLegislatura = new DiputadosLegislaturaController();
-            $numleg = $oLegislatura->ultimaLegislatura();
-            $condiciones = 'cat_diputados.ordenNivel>=1 and cat_diputados.ordenNivel<=3';
-            $oDiputadosLegislatura->setOrderBy('cat_diputados.ordenNivel');
-            $mesadirectiva=$oDiputadosLegislatura->distritosOcupados($condiciones,$numleg);
-            return view('/legisladores/mesadirectiva')
-            ->with('diputados',$mesadirectiva);
+        $oDiputadosLegislatura = new DiputadosLegislaturaController();
+        $condiciones = 'cat_diputados.ordenNivel>=1 and cat_diputados.ordenNivel<=3';
+        $oDiputadosLegislatura->setOrderBy('cat_diputados.ordenNivel');
+        $mesadirectiva=$oDiputadosLegislatura->distritosOcupados($condiciones,$numleg);
+        echo json_encode($mesadirectiva);
+    }
+
+
+    public function showweb(){
+        // Método para mostrarlo en un view
+        $oLegislatura = new LegislaturaController();
+        $oDiputadosLegislatura = new DiputadosLegislaturaController();
+        $numleg = $oLegislatura->ultimaLegislatura();
+        $condiciones = 'cat_diputados.ordenNivel>=1 and cat_diputados.ordenNivel<=3';
+        $oDiputadosLegislatura->setOrderBy('cat_diputados.ordenNivel');
+        $mesadirectiva=$oDiputadosLegislatura->distritosOcupados($condiciones,$numleg);
+        return view('/legisladores/juntas',
+            [
+                'diputados' => $mesadirectiva,
+                'titulo' => 'Mesa Directiva'
+            ]
+        );
     }
 
     /**

@@ -75,4 +75,12 @@ class LegislaturaController extends Controller
         $leg = (string) $claveLeg->clave;
         return $leg;
     }
+
+    public function idUltimaLegislatura(){
+        $claveLeg = DB::table('cat_legislaturas')
+        ->orderBy('idLegislatura','desc')
+        ->first();
+        $leg = $claveLeg->idLegislatura;
+        return $leg;
+    }
 }

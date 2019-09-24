@@ -1,5 +1,5 @@
 @extends('welcome')
-@section('titulo','Mesa directiva')
+@section('titulo',$titulo)
 @section('Contenido')
    
 @if ($diputados!=[])

@@ -15,35 +15,42 @@ class joelTest extends TestCase
      */
     function rutaAreas()
     {
-        $this->get('/api/areas')
+        $this->get('/api/catAreas')
         ->assertStatus(200);
     }
 
     /** @test*/
     function rutaComisiones()
     {
-        $this->get('/api/comisiones')
+        $this->get('/api/catComisiones')
         ->assertStatus(200);
     }
 
     /** @test*/
     function rutaDiputados()
     {
-        $this->get('/api/diputados')
+        $this->get('/api/catDiputados')
         ->assertStatus(200);
     }
 
     /** @test*/
     function rutaDistritos()
     {
-        $this->get('/api/distritos')
+        $this->get('/api/catDistritos')
+        ->assertStatus(200);
+    }
+
+    /** @test*/
+    function rutaEjerciciosLegislativos()
+    {
+        $this->get('/api/catEjerciciosLegislativos')
         ->assertStatus(200);
     }
 
     /** @test*/
     function rutaLegislaturas()
     {
-        $this->get('/api/legislaturas')
+        $this->get('/api/catLegislaturas')
         ->assertStatus(200);
     }
 
@@ -57,7 +64,7 @@ class joelTest extends TestCase
     /** @test*/
     function rutaPartidosPoliticos()
     {
-        $this->get('/api/partidospoliticos')
+        $this->get('/api/catPartidospoliticos')
         ->assertStatus(200);
     }
 
@@ -87,17 +94,45 @@ class joelTest extends TestCase
         ->assertStatus(200);
     }
 
-    /** @test*/
-    function rutaLegisladores()
-    {
-        $this->get('/legisladores')
+    /** @test */
+    function rutaFechaSesiones(){
+        $this->get('/api/sesiones')
         ->assertStatus(200);
     }
 
-    /** @test*/
-    function rutaLegisladoresEdita()
-    {
-        $this->get('/legisladores/edita/1')
+    /** @test */
+    function obtenerSesionesPorEjercicio(){
+        $this->get('/api/sesiones/1')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function obtenerSesionesPorEjercicioLegislatura(){
+        $this->get('/api/sesiones/1/65')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function sesionesAnexos(){
+        $this->get('/api/sesionesanexos')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function sesionesMedios(){
+        $this->get('/api/sesionesmedios')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function diarioDeDebates(){
+        $this->get('/api/diariodedebates')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function diarioDeDebatesAnexos(){
+        $this->get('/api/diariodedebatesanexos')
         ->assertStatus(200);
     }
 }

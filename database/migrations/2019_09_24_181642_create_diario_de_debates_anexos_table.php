@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLegisladorsTable extends Migration
+class CreateDiarioDeDebatesAnexosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateLegisladorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('legisladors', function (Blueprint $table) {
+        Schema::create('diariodedebatesanexos', function (Blueprint $table) {
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_general_ci';
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->text('descripcion');
+            $table->string('archivoAnexo',80);
+            $table->integer('idDiario');
         });
     }
 
@@ -26,6 +30,6 @@ class CreateLegisladorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('legisladors');
+        Schema::dropIfExists('diariodedebatesanexos');
     }
 }
