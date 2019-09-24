@@ -19,10 +19,10 @@ class SesionesController extends Controller
     {
         $oLegislatura = new LegislaturaController();
         $numLegis = $oLegislatura->ultimaLegislatura();
-        $this->obtenerSesionesPorEjercicioLegislatura(1,$numLegis);
+        $this->getSesiones(1,$numLegis);
     }
 
-    public function obtenerSesionesPorEjercicioLegislatura($idEjercicio,$numLegis){
+    public function getSesiones($idEjercicio,$numLegis){
         $sesiones = DB::table('sesiones')
         ->leftJoin("cat_legislaturas", "cat_legislaturas.idLegislatura", "=", "sesiones.idLegislatura")
         ->whereRaw("cat_legislaturas.clave = $numLegis")
@@ -76,7 +76,7 @@ class SesionesController extends Controller
     {
         $oLegislatura = new LegislaturaController();
         $numLegis = $oLegislatura->ultimaLegislatura();
-        $this->obtenerSesionesPorEjercicioLegislatura($idEjercicio,$numLegis);
+        $this->getSesiones($idEjercicio,$numLegis);
     }
 
     /**

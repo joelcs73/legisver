@@ -135,4 +135,46 @@ class joelTest extends TestCase
         $this->get('/api/diariodedebatesanexos')
         ->assertStatus(200);
     }
+
+    /** @test */
+    function sumarioLegislativo(){
+        $this->get('/api/sumariolegislativo')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function sumarioLegislativoPeriodo(){
+        $this->get('/api/sumariolegislativo/1')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function sumarioLegislativoPeriodoLegislatura(){
+        $this->get('/api/sumariolegislativo/1/64')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function agendaLegislativa(){
+        $this->get('/api/agendalegislativa')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function estadisticaslegislativas(){
+        $this->get('/api/estadisticaslegislativas')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function estadisticaslegislativasPeriodo(){
+        $this->get('/api/estadisticaslegislativas/1')
+        ->assertStatus(200);
+    }
+
+    /** @test */
+    function estadisticaslegislativasPeriodoLegislatura(){
+        $this->get('/api/estadisticaslegislativas/1/65')
+        ->assertStatus(200);
+    }
 }

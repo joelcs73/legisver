@@ -76,13 +76,13 @@
                     <div><a target="_blank" href="/api/juntadecoordinacionpolitica">Junta de Coordinación Política</a></div>
                     <div><a target="_blank" href="/api/juntadetrabajoslegislativos">Junta de Trabajos Legislativos</a></div>
                     <div><a target="_blank" href="/api/mesadirectiva">Mesa Directiva</a></div>
-                    <div>Por default obtiene información de la última legislatura en ejercicio.</div> 
+                    <div>Por default obtiene información de la última Legislatura en ejercicio.</div> 
                     <div>Para obtener datos de otra legislatura se agrega a la URL: <strong>/numleg</strong></div>
                 </div>
 
                 <div class="tab-pane fade" id="informacionLegislativa">
                     <div><a target="_blank" href="/api/sesiones">Sesiones</a></div>
-                    <div>Por default obtiene información del primer ejercicio de la última legislatura en ejercicio.</div>
+                    <div>Por default obtiene información del primer ejercicio de la última Legislatura en ejercicio.</div>
                     <div>Para obtener datos de otro ejercicio se agrega a la URL: <strong>/ejercicio</strong></div>
                     <div>Para obtener datos de otro ejercicio y/o legislatura se agrega a la URL: <strong>/ejercicio/numleg</strong></div>
 
@@ -92,13 +92,28 @@
                     <div>Para obtener datos de una sesion específica se agrega a la URL: <strong>/idSesion</strong></div>
                     <hr>
                     <div><a target="_blank" href="/api/diariodedebates">Diario de debates</a></div>
-                    <div>Por default obtiene información del primer ejercicio de la última legislatura en ejercicio.</div>
+                    <div>Por default obtiene información del primer ejercicio de la última Legislatura en ejercicio.</div>
                     <div>Para obtener datos de otro ejercicio se agrega a la URL: <strong>/ejercicio</strong></div>
                     <div>Para obtener datos de otro ejercicio y/o legislatura se agrega a la URL: <strong>/ejercicio/numleg</strong></div>
 
                     <div><a target="_blank" href="/api/diariodedebatesanexos">Diario de debates-Anexos</a></div>
                     <div>Por default obtiene información de todos los anexos.</div>
                     <div>Para obtener datos de un diario de debates específico se agrega a la URL: <strong>/idDiario</strong></div>
+                    <hr>
+                    <div><a target="_blank" href="/api/sumariolegislativo">Sumario Legislativo</a></div>
+                    <div>Por default obtiene información del primer ejercicio de la última Legislatura en ejercicio.</div>
+                    <div>Para obtener datos de otro ejercicio se agrega a la URL: <strong>/ejercicio</strong></div>
+                    <div>Para obtener datos de otro ejercicio y/o legislatura se agrega a la URL: <strong>/ejercicio/numleg</strong></div>
+                    <hr>
+                    <div><a target="_blank" href="/api/agendalegislativa">Agenda Legislativa</a></div>
+                    <div>Por default obtiene información del primer ejercicio de la última Legislatura en ejercicio.</div>
+                    <div>Para obtener datos de otro ejercicio se agrega a la URL: <strong>/ejercicio</strong></div>
+                    <div>Para obtener datos de otro ejercicio y/o legislatura se agrega a la URL: <strong>/ejercicio/numleg</strong></div>
+                    <hr>
+                    <div><a target="_blank" href="/api/estadisticaslegislativas">Estadisticas Legislativas</a></div>
+                    <div>Por default obtiene información del primer ejercicio de la última Legislatura en ejercicio.</div>
+                    <div>Para obtener datos de otro ejercicio se agrega a la URL: <strong>/ejercicio</strong></div>
+                    <div>Para obtener datos de otro ejercicio y/o legislatura se agrega a la URL: <strong>/ejercicio/numleg</strong></div>
                 </div>
             </div>
             {{-- <hr> --}}

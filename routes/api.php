@@ -35,6 +35,12 @@ Route::resource('juntadecoordinacionpolitica','JuntaCoordinacionPoliticaControll
 Route::resource('juntadetrabajoslegislativos','JuntaTrabajosLegislativosController');
 Route::resource('mesadirectiva','MesaDirectivaController');
 Route::resource('sesiones','SesionesController');
-Route::get('sesiones/{idEjercicio}/{nLegis}','SesionesController@obtenerSesionesPorEjercicioLegislatura');
+Route::get('sesiones/{idEjercicio}/{nLegis}','SesionesController@getSesiones');
 Route::resource('sesionesanexos','SesionesAnexosController');
 Route::resource('sesionesmedios','SesionesMediosController');
+Route::resource('sumariolegislativo','SumarioLegislativoController');
+Route::get('sumariolegislativo/{idEjercicio}/{nLegis}','SumarioLegislativoController@getSumario');
+Route::resource('agendalegislativa','AgendaLegislativaController');
+Route::get('agendalegislativa/{idEjercicio}/{nLegis}','AgendaLegislativaController@getAgenda');
+Route::resource('estadisticaslegislativas','EstadisticasLegislativasController');
+Route::get('estadisticaslegislativas/{idEjercicio}/{nLegis}','EstadisticasLegislativasController@getEstadisticas');
