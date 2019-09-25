@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-09-2019 a las 20:51:42
+-- Tiempo de generación: 25-09-2019 a las 20:56:28
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 7.3.8
 
@@ -199,7 +199,7 @@ INSERT INTO `cat_areas` (`idArea`, `clave`, `nombre`, `responsable`, `correo`, `
 CREATE TABLE `cat_comisiones` (
   `idComision` bigint(20) UNSIGNED NOT NULL,
   `nombre` varchar(200) NOT NULL,
-  `tipo` varchar(1) NOT NULL,
+  `tipo` varchar(1) NOT NULL COMMENT 'P=Permanente E=Especial',
   `status` int(11) NOT NULL DEFAULT '1',
   `icono` varchar(50) DEFAULT NULL,
   `correo` varchar(50) DEFAULT NULL,
@@ -629,6 +629,74 @@ INSERT INTO `diariodedebatesanexos` (`id`, `descripcion`, `archivoAnexo`, `idDia
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `diputadoscomisiones`
+--
+
+CREATE TABLE `diputadoscomisiones` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `cargo` varchar(20) NOT NULL,
+  `idDiputado` int(11) NOT NULL,
+  `idComision` int(11) NOT NULL,
+  `idLegislatura` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `diputadoscomisiones`
+--
+
+INSERT INTO `diputadoscomisiones` (`id`, `cargo`, `idDiputado`, `idComision`, `idLegislatura`) VALUES
+(1, 'Presidenta', 20, 1, 8),
+(2, 'Secretaria', 19, 1, 8),
+(3, 'Vocal', 46, 1, 8),
+(4, 'Presidente', 50, 2, 8),
+(5, 'Secretario', 14, 2, 8),
+(6, 'Vocal', 3, 2, 8),
+(7, 'Presidenta', 30, 3, 8),
+(8, 'Secretaria', 45, 3, 8),
+(9, 'Vocal', 4, 3, 8),
+(10, 'Presidete', 40, 4, 8),
+(11, 'Secretario', 36, 4, 8),
+(12, 'Vocal', 31, 4, 8),
+(13, 'Presidente', 25, 5, 8),
+(14, 'Secretaria', 18, 5, 8),
+(15, 'Vocal', 27, 5, 8),
+(16, 'Presidente', 5, 6, 8),
+(17, 'Secretaria', 9, 6, 8),
+(18, 'Vocal', 8, 6, 8),
+(19, 'Presidente', 10, 7, 8),
+(20, 'Secretario', 31, 7, 8),
+(21, 'Vocal', 21, 7, 8),
+(22, 'Presidente', 7, 8, 8),
+(23, 'Secretaria', 33, 8, 8),
+(24, 'Vocal', 12, 8, 8),
+(25, 'Presidente', 34, 9, 8),
+(26, 'Secretario', 50, 9, 8),
+(27, 'Vocal', 35, 9, 8),
+(28, 'Presidenta', 44, 10, 8),
+(29, 'Secretaria', 42, 10, 8),
+(30, 'Vocal', 33, 10, 8),
+(31, 'Presidente', 16, 12, 8),
+(32, 'Secretario', 49, 12, 8),
+(33, 'Vocal', 47, 12, 8),
+(34, 'Presidenta', 42, 13, 8),
+(35, 'Secretaria', 46, 13, 8),
+(36, 'Vocal', 29, 13, 8),
+(37, 'Presidenta', 33, 14, 8),
+(38, 'Secretario', 22, 14, 8),
+(39, 'Vocal', 36, 14, 8),
+(40, 'Presidenta', 18, 15, 8),
+(41, 'Secretario', 5, 15, 8),
+(42, 'Vocal', 26, 15, 8),
+(43, 'Presidenta', 13, 16, 8),
+(44, 'Secretaria', 43, 16, 8),
+(45, 'Vocal', 11, 16, 8),
+(46, 'Presidente', 4, 17, 8),
+(47, 'Secretario', 11, 17, 8),
+(48, 'Vocal', 42, 17, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `diputadoslegislatura`
 --
 
@@ -777,7 +845,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2019_09_24_181642_create_diario_de_debates_anexos_table', 17),
 (34, '2019_09_24_190314_create_sumario_legislativo_table', 18),
 (36, '2019_09_24_194949_create_agenda_legislativa_table', 19),
-(37, '2019_09_24_203004_create_estadisticas_legislativas_table', 20);
+(37, '2019_09_24_203004_create_estadisticas_legislativas_table', 20),
+(39, '2019_09_25_172411_create_diputados_comisiones_table', 22);
 
 -- --------------------------------------------------------
 
@@ -1019,6 +1088,12 @@ ALTER TABLE `diariodedebatesanexos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `diputadoscomisiones`
+--
+ALTER TABLE `diputadoscomisiones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `diputadoslegislatura`
 --
 ALTER TABLE `diputadoslegislatura`
@@ -1174,6 +1249,12 @@ ALTER TABLE `diariodedebatesanexos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `diputadoscomisiones`
+--
+ALTER TABLE `diputadoscomisiones`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
 -- AUTO_INCREMENT de la tabla `diputadoslegislatura`
 --
 ALTER TABLE `diputadoslegislatura`
@@ -1183,7 +1264,7 @@ ALTER TABLE `diputadoslegislatura`
 -- AUTO_INCREMENT de la tabla `estadisticaslegislativas`
 --
 ALTER TABLE `estadisticaslegislativas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -1195,7 +1276,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `sesiones`
