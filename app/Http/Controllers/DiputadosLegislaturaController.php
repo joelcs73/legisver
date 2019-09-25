@@ -89,7 +89,7 @@ class DiputadosLegislaturaController extends Controller
         $diplegis->status = $request->input('status');
         $diplegis->permanente = $request->input('permanente');
         $diplegis->save();
-        // echo json_encode($diplegis);  
+        echo json_encode($diplegis);  
     }
 
     /**
@@ -132,7 +132,7 @@ class DiputadosLegislaturaController extends Controller
             'cat_diputados.paterno',
             'cat_diputados.materno',
             'cat_diputados.nombre',
-            DB::raw('CONCAT(cat_diputados.paterno," ",cat_diputados.materno," ",cat_diputados.nombre) AS nombreDiputado'),
+            'diputadoslegislatura.nombreDiputado',
             DB::raw('(CASE
                 WHEN diputadoslegislatura.idDiputado IS NULL THEN "SIN REPRESENTACIÓN"
                 WHEN cat_diputados.suplenteDe = 0 THEN "Propietario"
@@ -155,12 +155,11 @@ class DiputadosLegislaturaController extends Controller
             DB::raw('CONCAT(cat_distritos.clave," ",cat_distritos.nombre) AS nombreDistrito'),
             'cat_partidospoliticos.siglas AS siglasPartido',
             'cat_partidospoliticos.nombre AS nombrePartido',
-            'cat_partidospoliticos.archivoimagen AS logoPartido'
+            'cat_partidospoliticos.archivoImagen AS logoPartido'
             )
         ->whereRaw($condiciones)
         ->orderByRaw($this->orderby)
         ->get();
-
         return $dl;
     }
 

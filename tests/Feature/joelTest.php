@@ -177,4 +177,10 @@ class joelTest extends TestCase
         $this->get('/api/estadisticaslegislativas/1/65')
         ->assertStatus(200);
     }
+
+    /** @test */
+    function diputadosComisiones(){
+        $this->get('/api/diputadoscomisiones')
+        ->assertStatus(200);
+    }
 }
