@@ -22,10 +22,9 @@ class DiputadosLegislaturaController extends Controller
     {
         $oLegislatura = new LegislaturaController();
         $leg = $oLegislatura->ultimaLegislatura();
-        $condiciones = 'diputadoslegislatura.id is not null';
+        $condiciones = '1';
         $diputados=$this->distritosOcupados($condiciones,$leg);
         echo json_encode($diputados);
-        // return redirect('api/diputadoslegislatura/'.$leg);
     }
 
     /**
@@ -36,21 +35,19 @@ class DiputadosLegislaturaController extends Controller
      */
     public function show($numleg)
     {
-        $condiciones = 'diputadoslegislatura.id is not null';
+        $condiciones = '1';
         $diputados=$this->distritosOcupados($condiciones,$numleg);
         echo json_encode($diputados);
     }
 
     public function showweb()
     {   
-        $claveLeg = DB::table('cat_legislaturas')
-        ->orderBy('idLegislatura','desc')
-        ->first();
-        $numleg = (string) $claveLeg->clave;
-            $condiciones = 'diputadoslegislatura.id is not null';
-            $dips = $this->distritosOcupados($condiciones,$numleg);
-            return view('/legisladores/diputadoslegislatura')
-            ->with('diputados',$dips);
+        $oLegislatura = NEW LegislaturaController();
+        $leg = $oLegislatura->ultimaLegislatura();
+        $condiciones = "1";
+        $dips = $this->distritosOcupados($condiciones,$leg);
+        return view('/legisladores/diputadoslegislatura')
+        ->with('diputados',$dips);
         }
 
     /**
@@ -195,7 +192,6 @@ class DiputadosLegislaturaController extends Controller
             $condiciondiputado = 'cat_diputados.idDiputado = '.$diputadoSale->suplenteDe;
             $diputadoEntra = $this->distritosOcupados($condiciondiputado,$numleg,0)->first();
         }
-        // dd($diputadoSale,$diputadoEntra,$diputadoEntraYaHaOcupadoCurul);
         return view('legisladores/gestionalicencia',
             [
                 'diputadoSale' => $diputadoSale,

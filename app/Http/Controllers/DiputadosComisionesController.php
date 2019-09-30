@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class DiputadosComisionesController extends Controller
 {
 
-    private $orderby="cat_comisiones.idComision";
+    private $orderby="cat_comisiones.idComision, diputadoscomisiones.cargo";
     public function setOrderBy($order) { $this->orderby=$order;}
     /**
      * Display a listing of the resource.

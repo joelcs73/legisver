@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('sitioAdmin')
 @section('titulo',$titulo)
 @section('Contenido')
    

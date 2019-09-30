@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         {{-- Bootstrap --}}
-        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css">
+        <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.css">
 
         {{-- Iconos --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
@@ -21,20 +21,9 @@
     </head>
     <body>
         <div class="container ">
-            <div class="jumbotron">
-                <h1 class="text-center">Congreso del Estado de Veracruz</h1>
-                <h3 class="text-center">Coordinación de informática</h3>
-                <h5 class="text-center">Construcción de aplicaciones</h5>
-                <p class="lead">Aquí encontrarás las apis que podrás consumir para crear tu sitio frontend</p>
-                <p class="lead">También las aplicaciones para administrar los datos para dicha página</p>
-                <hr class="my-4">
-                <p class="">
-                  <a class="btn btn-primary btn-sm" href="/sitioApis" role="button">Apis</a>
-                </p>
-                <p class="">
-                    <a class="btn btn-primary btn-sm" href="/sitioAdmin" role="button">Administración</a>
-                  </p>
-              </div>
+            @include('menuApis')
+            <h4>@yield('titulo')<span class="badge badge-dark">@yield('subtitulo')</span></h4>
+            @yield('Contenido')
         </div>
     </body>
     <div class="container">

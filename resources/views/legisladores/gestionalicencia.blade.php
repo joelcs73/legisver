@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('sitioAdmin')
 @section('titulo',"Gestionando licencia")
 {{-- @section('subtitulo',$diputadoSale->nombreDiputado ) --}}
 @section('Contenido')

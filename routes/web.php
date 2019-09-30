@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/sitioAdmin', function () {
+    return view('sitioAdmin');
+});
+
+Route::get('/sitioApis', function () {
+    return view('sitioApis');
+});
+
 Route::get('/legisladores/','DiputadosLegislaturaController@showweb');
 
 Route::get('/legisladores/edita/{idDiputado}','DiputadoController@edita')
